@@ -522,11 +522,11 @@ class _CalendarPageState<T extends FloatingCalendarEvent>
 
   Map<Type, EventBuilder<CalendarEvent>> _getEventBuilders() {
     return {
-      ImageCalendarEvent: <CustomEvent>(context, event) => Container(
+      ImageCalendarEvent: <ImageCalendarEvent>(context, event) => Container(
             decoration: BoxDecoration(
               color: Colors.white,
               image: DecorationImage(
-                image: AssetImage(event.imgAsset),
+                image: AssetImage(event.imgAsset.toString()),
                 fit: BoxFit.cover,
                 alignment: Alignment.center,
               ),
@@ -535,7 +535,7 @@ class _CalendarPageState<T extends FloatingCalendarEvent>
               color: Colors.black.withOpacity(0.1),
               padding: const EdgeInsets.all(4),
               child: Text(
-                event.title,
+                (event.title as String),
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   color: Colors.white,

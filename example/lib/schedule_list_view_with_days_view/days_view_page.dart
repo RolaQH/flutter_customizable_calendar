@@ -210,9 +210,9 @@ class _DaysViewPageState extends State<DaysViewPage> {
   }
 
   Widget _buildDaysList(
-    context,
-    focusedDate,
-    events,
+    BuildContext context,
+    DateTime focusedDate,
+    List<CalendarEvent> events,
   ) {
     final filteredEvents = events.where((event) {
       return event.start.day == focusedDate.day &&

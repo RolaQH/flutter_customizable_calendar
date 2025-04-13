@@ -206,7 +206,7 @@ class _WeekViewPageState extends State<WeekViewPage> {
   Widget _dayRowBuilder(context, day, events) {
     return Column(children: [
       Text(
-        DateFormat.EEEE().format(day).substring(0, 3),
+        DateFormat.EEEE().format(day as DateTime).substring(0, 3),
         style: TextStyle(
           fontSize: 12,
           fontWeight: FontWeight.w400,
@@ -258,8 +258,8 @@ class _WeekViewPageState extends State<WeekViewPage> {
             GestureDetector(
               onTap: () {
                 showDatePicker(
-                  context: context,
-                  initialDate: range.start,
+                  context: context as BuildContext,
+                  initialDate: range.start as DateTime?,
                   firstDate: DateTime(1970),
                   lastDate: DateTime(2100),
                 ).then((value) {
@@ -269,7 +269,7 @@ class _WeekViewPageState extends State<WeekViewPage> {
                 });
               },
               child: Text(
-                DateFormat.yMMMM().format(range.start),
+                DateFormat.yMMMM().format(range.start as DateTime),
                 style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w500,
